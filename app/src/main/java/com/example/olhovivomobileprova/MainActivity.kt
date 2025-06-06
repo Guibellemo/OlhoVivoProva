@@ -192,8 +192,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun exibirResultados(numeroLinha: String, sentidoPrincipal: String, sentidoSecundario: String) {
         textViewNumeroLinha.text = "Linha: $numeroLinha"
-        textViewSentidoPrincipal.text = "Sentido 1 - Terminal Inicial → Final:\n$sentidoPrincipal → \n$sentidoSecundario"
-        textViewSentidoSecundario.text = "Sentido 2 - Terminal Inicial → Final → :\n$sentidoSecundario → \n$sentidoPrincipal"
+        textViewSentidoPrincipal.text = "Sentido 1 \n$sentidoPrincipal → $sentidoSecundario"
+        textViewSentidoSecundario.text = "Sentido 2 \n$sentidoSecundario → $sentidoPrincipal"
 
         // Tornar visíveis os campos de resultado
         textViewNumeroLinha.visibility = View.VISIBLE
