@@ -21,7 +21,7 @@ import java.net.CookiePolicy
 class MainActivity : AppCompatActivity() {
 
     private lateinit var editTextLinha: EditText
-    private lateinit var editTextSentido: EditText
+    //private lateinit var editTextSentido: EditText
     private lateinit var buttonBuscar: Button
     private lateinit var textViewNumeroLinha: TextView
     private lateinit var textViewSentidoPrincipal: TextView
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         // Inicializar componentes
         editTextLinha = findViewById(R.id.editTextLinha)
-        editTextSentido = findViewById(R.id.editTextSentido)
+        //editTextSentido = findViewById(R.id.editTextSentido)
         buttonBuscar = findViewById(R.id.buttonBuscar)
         textViewNumeroLinha = findViewById(R.id.textViewNumeroLinha)
         textViewSentidoPrincipal = findViewById(R.id.textViewSentidoPrincipal)
@@ -61,17 +61,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun buscarLinha() {
         val termosBusca = editTextLinha.text.toString().trim()
-        val sentido = editTextSentido.text.toString().trim()
+        val sentido = 1
 
         if (termosBusca.isEmpty()) {
             Toast.makeText(this, "Digite o número ou nome da linha", Toast.LENGTH_SHORT).show()
             return
         }
 
-        if (sentido.isEmpty()) {
-            Toast.makeText(this, "Digite o sentido (1 ou 2)", Toast.LENGTH_SHORT).show()
-            return
-        }
+        //if (sentido.isEmpty()) {
+        //    Toast.makeText(this, "Digite o sentido (1 ou 2)", Toast.LENGTH_SHORT).show()
+        //    return
+        //}
 
         // Limpar resultados anteriores
         limparResultados()
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         autenticarToken { sucesso ->
             if (sucesso) {
                 // Se autenticação foi bem-sucedida, fazer a busca da linha
-                buscarLinhaSentido(termosBusca, sentido)
+                buscarLinhaSentido(termosBusca, sentido.toString())
             } else {
                 Toast.makeText(this, "Erro na autenticação. Verifique o token.", Toast.LENGTH_LONG).show()
             }
@@ -95,15 +95,14 @@ class MainActivity : AppCompatActivity() {
             url,
             { response ->
                 val sucesso = response.trim().equals("true", ignoreCase = true)
-                if (sucesso) {
-                    Toast.makeText(this, "Autenticação realizada com sucesso!", Toast.LENGTH_SHORT).show()
-                }
+//                if (sucesso) {
+//                    Toast.makeText(this, "Autenticação realizada com sucesso!", Toast.LENGTH_SHORT).show()
+//                }
                 callback(sucesso)
             },
             { error ->
                 error.printStackTrace()
 
-                // Log mais detalhado do erro
                 val errorMsg = when {
                     error.networkResponse != null -> {
                         "Código: ${error.networkResponse.statusCode}, Dados: ${String(error.networkResponse.data)}"
@@ -193,8 +192,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun exibirResultados(numeroLinha: String, sentidoPrincipal: String, sentidoSecundario: String) {
         textViewNumeroLinha.text = "Linha: $numeroLinha"
-        textViewSentidoPrincipal.text = "Terminal Principal → Secundário:\n$sentidoPrincipal"
-        textViewSentidoSecundario.text = "Terminal Secundário → Principal:\n$sentidoSecundario"
+        textViewSentidoPrincipal.text = "Sentido 1 - Terminal Inicial → Final:\n$sentidoPrincipal → \n$sentidoSecundario"
+        textViewSentidoSecundario.text = "Sentido 2 - Terminal Inicial → Final → :\n$sentidoSecundario → \n$sentidoPrincipal"
 
         // Tornar visíveis os campos de resultado
         textViewNumeroLinha.visibility = View.VISIBLE

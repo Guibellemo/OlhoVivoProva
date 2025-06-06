@@ -6,7 +6,6 @@
     android:padding="16dp"
     android:background="#f5f5f5">
 
-    <!-- Título do App -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +14,8 @@
         android:textStyle="bold"
         android:textColor="#1976D2"
         android:gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="30dp"/>
 
     <!-- Card de Pesquisa -->
     <androidx.cardview.widget.CardView
@@ -40,39 +40,17 @@
                 android:textColor="#333"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Campo de busca da linha -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:hint="Número ou nome da linha">
 
                 <EditText
                     android:id="@+id/editTextLinha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:padding="12dp" />
+                    android:padding="12dp"
+                    android:textSize="20sp"
+                    android:hint="Número ou nome da linha"/>
 
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Campo do sentido -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:hint="Sentido (1 ou 2)">
-
-                <EditText
-                    android:id="@+id/editTextSentido"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:padding="12dp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Botão de busca -->
             <Button
                 android:id="@+id/buttonBuscar"
                 android:layout_width="match_parent"
@@ -110,21 +88,16 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="#1565C0"
-                android:layout_marginBottom="4dp" />
+                android:layout_marginBottom="4dp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1 = Terminal Principal → Terminal Secundário"
+                android:text="Terminal Inicial → Terminal Final"
                 android:textSize="12sp"
                 android:textColor="#1565C0" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2 = Terminal Secundário → Terminal Principal"
-                android:textSize="12sp"
-                android:textColor="#1565C0" />
 
         </LinearLayout>
 
@@ -147,18 +120,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Resultados"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="#333"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Número da linha -->
+
             <TextView
                 android:id="@+id/textViewNumeroLinha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="#1976D2"
                 android:layout_marginBottom="12dp"
@@ -168,7 +141,7 @@
                 android:drawableLeft="@android:drawable/ic_menu_directions"
                 android:drawablePadding="8dp" />
 
-            <!-- Sentido Principal para Secundário -->
+
             <TextView
                 android:id="@+id/textViewSentidoPrincipal"
                 android:layout_width="match_parent"
@@ -181,7 +154,6 @@
                 android:background="#F5F5F5"
                 android:padding="8dp" />
 
-            <!-- Sentido Secundário para Principal -->
             <TextView
                 android:id="@+id/textViewSentidoSecundario"
                 android:layout_width="match_parent"
